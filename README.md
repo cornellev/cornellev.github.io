@@ -2,6 +2,13 @@
 
 This website is the home for CEV autonomy.
 
+## Dependencies
+
+```
+npm install -g uglify-js
+brew install lessc # for macOS, use equivalent for your platform
+```
+
 ## Usage
 
 1. Run `make` to start the web server.
