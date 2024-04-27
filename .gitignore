@@ -1,5 +1,4 @@
 # Copyright (C) 2024 CEV Autonomy and Ethan Uppal. All rights reserved.
 
 *.DS_Store
-*.less
 *~
