@@ -1,0 +1,32 @@
+/*Copyright (C) 2024 CEV Autonomy and Ethan Uppal. All rights reserved.*/
+/*Copyright (C) 2024 CEV Autonomy and Ethan Uppal. All rights reserved.*/
+body,
+html {
+  top: 0;
+  margin-top: 0;
+  font-family: sans-serif;
+}
+h1 {
+  font-size: 24pt;
+}
+h2 {
+  font-size: 20pt;
+}
+h3 {
+  font-size: 18pt;
+}
+p,
+a,
+li,
+td,
+span {
+  font-size: 14pt;
+}
+#container {
+  max-width: 800px;
+  margin: auto;
+  padding: 1em;
+}
+#copyright {
+  font-size: 10pt;
+}
