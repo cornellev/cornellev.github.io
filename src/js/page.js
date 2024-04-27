@@ -25,10 +25,6 @@ window.addEventListener('load', async function () {
     html.lang = 'en';
     html.dir = 'ltr';
     await include(html, 'template.html');
-    let script = document.createElement('script');
-    script.src = `/src/js/page/${html.id}`;
-    script.defer = true;
-    document.head.appendChild(script);
 
     let body = document.getElementsByTagName('body')[0];
 
@@ -59,9 +55,14 @@ window.addEventListener('load', async function () {
     copyright.textContent = `Copyright (C) ${currentYear} CEV Autonomy. All rights reserved.`;
     footer.appendChild(copyright);
 
-    let page = {
-        content: content
+    let script = document.createElement('script');
+    script.src = `/src/js/page/${html.id}.min.js`;
+    script.onload = async function () {
+        let page = {
+            content: content
+        };
+        await Page(page);
+        document.title = page.title || "cornellev.github.io";
     };
-    await Page(page);
-    document.title = page.title || "cornellev.github.io";
+    document.head.appendChild(script);
 }, false)
