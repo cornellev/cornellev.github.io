@@ -7,6 +7,7 @@ html {
   font-family: sans-serif;
 }
 h1 {
+  margin-top: 1em;
   font-size: 24pt;
 }
 h2 {
@@ -29,4 +30,19 @@ span {
 }
 #copyright {
   font-size: 10pt;
+}
+nav {
+  max-width: 100%;
+  width: 100%;
+}
+#nav-list {
+  max-width: 100%;
+  width: 100%;
+  float: left;
+  background-color: #ffcdcd;
+  padding: 0.5em;
+  border-radius: 0.1em;
+}
+.reset-float {
+  float: none;
 }

@@ -4,6 +4,30 @@ function assert(condition, message) {
     }
 }
 
+function include(element, source, substitutions) {
+    fetch(`/src/html/${source}`)
+        .then(response => response.text())
+        .then(data => {
+            let temp = data;
+            if (substitutions) {
+                for (const key in substitutions) {
+                    temp = temp.replace(`{{${key}}}`, substitutions[key]);
+                }
+            }
+            element.innerHTML = temp;
+        })
+        .catch(error => console.error(error));
+}
+
+let html = document.getElementsByTagName('html')[0];
+html.lang = 'en';
+html.dir = 'ltr';
+include(html, 'template.html');
+let script = document.createElement('script');
+script.src = `/src/js/page/${html.id}`;
+script.defer = true;
+document.head.appendChild(script);
+
 window.addEventListener('load', function () {
     let body = document.body;
 
@@ -16,6 +40,7 @@ window.addEventListener('load', function () {
         container.appendChild(header);
         return header;
     })()
+    include(header, 'nav.html');
 
     let content = document.createElement('div');
     content.id = 'content';
