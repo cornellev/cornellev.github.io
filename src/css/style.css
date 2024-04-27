@@ -43,6 +43,9 @@ nav {
   padding: 0.5em;
   border-radius: 0.1em;
 }
+#nav-list a {
+  text-decoration: none;
+}
 .reset-float {
   float: none;
 }

@@ -1,4 +1,4 @@
-function Page(page) {
+async function Page(page) {
     page.title = 'CEV Autonomy';
-    include(page.content, 'home.html');
+    await include(page.content, 'home.html');
 }
