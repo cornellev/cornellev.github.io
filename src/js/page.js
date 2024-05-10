@@ -20,6 +20,31 @@ async function include(element, source, substitutions) {
     }
 }
 
+function buildPage(name, params) {
+    if (params.html.dataset.name == name && !params.force) {
+        return;
+    }
+
+    params.content.innerHTML = '';
+    let script = document.createElement('script');
+    script.src = `/src/js/page/${name}.min.js`;
+    script.onload = async function () {
+        let page = {
+            content: params.content
+        };
+        await Page(page);
+        document.title = page.title || "cornellev.github.io";
+        script.remove();
+    };
+    document.head.appendChild(script);
+
+    params.html.dataset.name = name;
+
+    let url = new URL(window.location.href);
+    url.searchParams.set('page', name);
+    window.history.pushState({}, '', url);
+}
+
 window.addEventListener('load', async function () {
     let html = document.getElementsByTagName('html')[0];
     html.lang = 'en';
@@ -39,6 +64,13 @@ window.addEventListener('load', async function () {
     })()
     await include(header, 'nav.html');
 
+    let navPages = document.querySelectorAll('a[data-src]');
+    for (let navPage of navPages) {
+        navPage.addEventListener('click', function (event) {
+            buildPage(event.target.dataset.src, { html: html, content: content });
+        }, false);
+    }
+
     let content = document.createElement('div');
     content.id = 'content';
     container.appendChild(content);
@@ -55,14 +87,12 @@ window.addEventListener('load', async function () {
     copyright.textContent = `Copyright (C) ${currentYear} CEV Autonomy. All rights reserved.`;
     footer.appendChild(copyright);
 
-    let script = document.createElement('script');
-    script.src = `/src/js/page/${html.id}.min.js`;
-    script.onload = async function () {
-        let page = {
-            content: content
-        };
-        await Page(page);
-        document.title = page.title || "cornellev.github.io";
-    };
-    document.head.appendChild(script);
+    let url = new URL(window.location.href);
+    let initialName = url.searchParams.get('page') || html.dataset.name;
+
+    buildPage(initialName, {
+        html: html,
+        content: content,
+        force: true
+    });
 }, false)
