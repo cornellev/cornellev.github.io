@@ -5,6 +5,8 @@ html {
     top: 0;
     margin-top: 0;
     font-family: sans-serif;
+    background-color: black;
+    color: red;
 }
 
 h1 {
@@ -43,19 +45,57 @@ nav {
     width: 100%;
 }
 
+.ButtonStyle {
+    text-decoration: none;
+    color: magenta;
+    display: inline;
+    padding: 0.25em;
+    border: 1px solid magenta;
+    background-color: transparent;
+    border-radius: 0.1em;
+
+    &:visited {
+        color: magenta;
+        border: 1px solid magenta;
+    }
+
+    &:hover {
+        background-color: #440044;
+    }
+
+    &:active {
+        background-color: #770077;
+    }
+}
+
+button {
+    font-size: medium;
+    .ButtonStyle();
+}
+
 #nav-list {
     max-width: 100%;
     width: 100%;
     float: left;
-    background-color: rgb(255, 205, 205);
     padding: 0.5em;
     border-radius: 0.1em;
+    border-color: red;
+    border: 1px solid;
+    line-height: 2em;
+    margin-bottom: 1em;
+
+    #logo {
+        width: 2em;
+        height: 2em;
+        float: right;
+    }
 
     a {
-        text-decoration: none;
+        font-size: 1.2em;
+        .ButtonStyle();
     }
-}
 
-.reset-float {
-    float: none;
+    .reset-float {
+        float: none;
+    }
 }

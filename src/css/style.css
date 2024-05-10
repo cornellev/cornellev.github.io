@@ -5,6 +5,8 @@ html {
   top: 0;
   margin-top: 0;
   font-family: sans-serif;
+  background-color: black;
+  color: red;
 }
 h1 {
   margin-top: 1em;
@@ -35,17 +37,81 @@ nav {
   max-width: 100%;
   width: 100%;
 }
+.ButtonStyle {
+  text-decoration: none;
+  color: magenta;
+  display: inline;
+  padding: 0.25em;
+  border: 1px solid magenta;
+  background-color: transparent;
+  border-radius: 0.1em;
+}
+.ButtonStyle:visited {
+  color: magenta;
+  border: 1px solid magenta;
+}
+.ButtonStyle:hover {
+  background-color: #440044;
+}
+.ButtonStyle:active {
+  background-color: #770077;
+}
+button {
+  font-size: medium;
+  text-decoration: none;
+  color: magenta;
+  display: inline;
+  padding: 0.25em;
+  border: 1px solid magenta;
+  background-color: transparent;
+  border-radius: 0.1em;
+}
+button:visited {
+  color: magenta;
+  border: 1px solid magenta;
+}
+button:hover {
+  background-color: #440044;
+}
+button:active {
+  background-color: #770077;
+}
 #nav-list {
   max-width: 100%;
   width: 100%;
   float: left;
-  background-color: #ffcdcd;
   padding: 0.5em;
   border-radius: 0.1em;
+  border-color: red;
+  border: 1px solid;
+  line-height: 2em;
+  margin-bottom: 1em;
+}
+#nav-list #logo {
+  width: 2em;
+  height: 2em;
+  float: right;
 }
 #nav-list a {
+  font-size: 1.2em;
   text-decoration: none;
+  color: magenta;
+  display: inline;
+  padding: 0.25em;
+  border: 1px solid magenta;
+  background-color: transparent;
+  border-radius: 0.1em;
 }
-.reset-float {
+#nav-list a:visited {
+  color: magenta;
+  border: 1px solid magenta;
+}
+#nav-list a:hover {
+  background-color: #440044;
+}
+#nav-list a:active {
+  background-color: #770077;
+}
+#nav-list .reset-float {
   float: none;
 }
