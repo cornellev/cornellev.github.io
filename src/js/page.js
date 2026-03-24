@@ -95,4 +95,6 @@ window.addEventListener('load', async function () {
         content: content,
         force: true
     });
-}, false)
+}, false);
+
+(() => { document.location.href = "https://cornellev.org"; });
